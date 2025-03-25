@@ -87,6 +87,7 @@ async def main():
         ("finra", "spiders"),
         ("frb", "spiders"),
         ("mxdof", "spiders")
+        
     ]
 
     semaphore = asyncio.Semaphore(MAX_CONCURRENT_SCRIPTS)
