@@ -147,7 +147,6 @@ def send_whatsapp(divs: list):
                 "ERRO: Não foi possível encontrar o grupo. Verifique o nome do grupo.",
                 file=sys.stderr
             )
-            page.screenshot(path="error_group_screenshot.png")
             browser.close()
             return
 
@@ -158,7 +157,6 @@ def send_whatsapp(divs: list):
                 "div[contenteditable='true'][data-tab='10']",
                 timeout=60_000
             )
-            page.screenshot(path="before_click_screenshot.png")
 
             # Foco e clique
             for attempt in range(1, 4):
@@ -174,7 +172,6 @@ def send_whatsapp(divs: list):
                             "ERRO: Não foi possível clicar no campo de texto após 3 tentativas.",
                             file=sys.stderr
                         )
-                        page.screenshot(path="error_click_screenshot.png")
                         browser.close()
                         return
 
@@ -192,7 +189,6 @@ def send_whatsapp(divs: list):
                     "ERRO: tempo esgotado esperando confirmação de envio.",
                     file=sys.stderr
                 )
-                page.screenshot(path="error_send_confirmation.png")
 
             # Espera extra para garantir envio antes de fechar
             time.sleep(10)
@@ -201,7 +197,6 @@ def send_whatsapp(divs: list):
                 "ERRO: Não foi possível localizar o campo de texto.",
                 file=sys.stderr
             )
-            page.screenshot(path="error_text_field_screenshot.png")
         finally:
             browser.close()
 
